@@ -1,7 +1,4 @@
-const moment = require('moment');
-const dateNow = moment().format('L');
-
-('use strict');
+'use strict';
 module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable('Wallets', {
@@ -42,7 +39,6 @@ module.exports = {
                     notEmpty: {
                         msg: "This field can't be empty",
                     },
-                    isBefore: `${dateNow}`,
                 },
             },
             createdAt: {
