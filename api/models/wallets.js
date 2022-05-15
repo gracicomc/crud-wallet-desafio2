@@ -2,13 +2,11 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
     class Wallets extends Model {
-        /**
-         * Helper method for defining associations.
-         * This method is not a part of Sequelize lifecycle.
-         * The `models/index` file will call this method automatically.
-         */
         static associate(models) {
-            // define association here
+            Wallets.belongsTo(models.Coins, {
+                constraints: true,
+                foreignKey: 'WalletCoins',
+            });
         }
     }
     Wallets.init(
@@ -18,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
                 autoIncrement: true,
                 primaryKey: true,
                 type: DataTypes.INTEGER,
+            },
+            WalletCoins: {
+                allowNull: false,
+                type: DataTypes.INTEGER,
+                references: { model: 'Coins', key: 'idCoin' },
             },
             name: {
                 type: DataTypes.STRING,
@@ -55,7 +58,7 @@ module.exports = (sequelize, DataTypes) => {
                         msg: "This field can't be empty",
                     },
                     isBefore: {
-                        args: ['2004-12-31'],
+                        args: ['2003-12-31'],
                         msg: 'You must have at least 18 years',
                     },
                 },

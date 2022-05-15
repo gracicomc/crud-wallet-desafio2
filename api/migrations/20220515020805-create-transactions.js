@@ -1,20 +1,27 @@
 'use strict';
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('Coins', {
-            idCoin: {
+        await queryInterface.createTable('Transactions', {
+            idTransactions: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            coin: {
-                type: Sequelize.STRING,
+
+            value: {
+                type: Sequelize.DOUBLE,
             },
-            fullname: {
-                type: Sequelize.STRING,
+            datetime: {
+                type: Sequelize.DATE,
             },
-            amount: {
+            sendTo: {
+                type: Sequelize.INTEGER,
+            },
+            receiveFrom: {
+                type: Sequelize.INTEGER,
+            },
+            currentCotation: {
                 type: Sequelize.DOUBLE,
             },
             createdAt: {
@@ -28,6 +35,6 @@ module.exports = {
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('Coins');
+        await queryInterface.dropTable('Transactions');
     },
 };
