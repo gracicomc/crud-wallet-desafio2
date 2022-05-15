@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     class Transactions extends Model {
         static associate(models) {
             Transactions.belongsTo(models.Coins, {
-                constraints: true,
                 foreignKey: 'CoinTransaction',
             });
         }

@@ -4,11 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     class Coins extends Model {
         static associate(models) {
             Coins.belongsTo(models.Wallets, {
-                constraints: true,
                 foreignKey: 'WalletCoins',
             });
             Coins.hasMany(models.Transactions, {
-                constraints: true,
                 foreignKey: 'CoinTransaction',
             });
         }
@@ -25,11 +23,6 @@ module.exports = (sequelize, DataTypes) => {
             coin: DataTypes.STRING,
             fullname: DataTypes.STRING,
             amount: DataTypes.FLOAT,
-            CoinTransaction: {
-                allowNull: false,
-                type: DataTypes.INTEGER,
-                references: { model: 'Transactions', key: 'idTransactions' },
-            },
         },
 
         {

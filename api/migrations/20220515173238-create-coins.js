@@ -8,6 +8,11 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
+            WalletCoins: {
+                allowNull: false,
+                type: Sequelize.INTEGER,
+                references: { model: 'Wallets', key: 'address' },
+            },
             coin: {
                 type: Sequelize.STRING,
             },

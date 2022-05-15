@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     class Wallets extends Model {
         static associate(models) {
             Wallets.hasMany(models.Coins, {
-                constraints: true,
                 foreignKey: 'WalletCoins',
             });
         }
