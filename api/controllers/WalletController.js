@@ -21,6 +21,19 @@ class WalletController {
             return res.status(500).json(err.message);
         }
     }
+
+    static async getByAdress(req, res) {
+        const { address } = req.params;
+        try {
+            const idWallet = await database.Wallets.findOne({
+                where: { address: Number(address) },
+                include: [database.Coins, database.Transactions],
+            });
+            return res.status(200).json(idWallet);
+        } catch (err) {
+            return res.status(500).json(err.message);
+        }
+    }
 }
 
 module.exports = WalletController;
