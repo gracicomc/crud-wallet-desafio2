@@ -14,7 +14,7 @@ class WalletController {
     static async getAllWallets(req, res) {
         try {
             const allWallets = await database.Wallets.findAll({
-                include: database.Coins,
+                include: [database.Coins, database.Transactions],
             });
             return res.status(200).json(allWallets);
         } catch (err) {

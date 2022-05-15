@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     }
     Transactions.init(
         {
-            idTransaction: {
+            idTransactions: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
@@ -21,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
             sendTo: DataTypes.INTEGER,
             receiveFrom: DataTypes.INTEGER,
             currentCotation: DataTypes.DOUBLE,
-            timestamps: false,
         },
 
         {
             sequelize,
+            timestamps: false,
             modelName: 'Transactions',
         }
     );

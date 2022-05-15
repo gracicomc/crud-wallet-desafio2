@@ -6,6 +6,9 @@ module.exports = (sequelize, DataTypes) => {
             Wallets.hasMany(models.Coins, {
                 foreignKey: 'WalletCoins',
             });
+            Wallets.hasMany(models.Transactions, {
+                foreignKey: 'CoinTransaction',
+            });
         }
     }
     Wallets.init(
