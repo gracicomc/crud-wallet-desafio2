@@ -21,7 +21,9 @@ module.exports = (sequelize, DataTypes) => {
             sendTo: DataTypes.INTEGER,
             receiveFrom: DataTypes.INTEGER,
             currentCotation: DataTypes.DOUBLE,
+            timestamps: false,
         },
+
         {
             sequelize,
             modelName: 'Transactions',

@@ -22,11 +22,12 @@ module.exports = (sequelize, DataTypes) => {
 
             coin: DataTypes.STRING,
             fullname: DataTypes.STRING,
-            amount: DataTypes.FLOAT,
+            amont: DataTypes.FLOAT,
         },
 
         {
             sequelize,
+            timestamps: false,
             modelName: 'Coins',
         }
     );

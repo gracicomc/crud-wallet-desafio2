@@ -19,16 +19,8 @@ module.exports = {
             fullname: {
                 type: Sequelize.STRING,
             },
-            amount: {
+            amont: {
                 type: Sequelize.DOUBLE,
-            },
-            createdAt: {
-                allowNull: false,
-                type: Sequelize.DATE,
-            },
-            updatedAt: {
-                allowNull: false,
-                type: Sequelize.DATE,
             },
         });
     },
