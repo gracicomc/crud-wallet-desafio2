@@ -3,12 +3,11 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
     class Coins extends Model {
         static associate(models) {
-            Coins.hasMany(models.Wallets, {
+            Coins.belongsTo(models.Wallets, {
                 constraints: true,
                 foreignKey: 'WalletCoins',
             });
-
-            Coins.belongsTo(models.Transactions, {
+            Coins.hasMany(models.Transactions, {
                 constraints: true,
                 foreignKey: 'CoinTransaction',
             });
@@ -26,7 +25,13 @@ module.exports = (sequelize, DataTypes) => {
             coin: DataTypes.STRING,
             fullname: DataTypes.STRING,
             amount: DataTypes.FLOAT,
+            CoinTransaction: {
+                allowNull: false,
+                type: DataTypes.INTEGER,
+                references: { model: 'Transactions', key: 'idTransactions' },
+            },
         },
+
         {
             sequelize,
             modelName: 'Coins',

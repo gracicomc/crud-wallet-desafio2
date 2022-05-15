@@ -1,4 +1,5 @@
 const database = require('../models');
+const coins = require('../models/coins');
 
 class WalletController {
     static async postWallet(req, res) {
@@ -13,7 +14,9 @@ class WalletController {
 
     static async getAllWallets(req, res) {
         try {
-            const allWallets = await database.Wallets.findAll();
+            const allWallets = await database.Wallets.findAll({
+                include: { model: coins, require: true },
+            });
             return res.status(200).json(allWallets);
         } catch (err) {
             return res.status(500).json(err.message);
