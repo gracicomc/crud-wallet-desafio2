@@ -41,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
                         msg: "This field can't be empty",
                     },
                     is: {
-                        args: [/^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}/],
-                        msg: 'Invalid CPF format',
+                        args: [/^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/i],
+                        msg: 'Invalid CPF format, or this cpf already exist',
                     },
                 },
             },
