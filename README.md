@@ -1,6 +1,6 @@
 # 💱 Crypto Wallet CRUD
 
-## This is a API REST CRUD of a simple Crypto Wallet using Sequelize ORM with Node.js, express MySQL.
+## This is a API REST CRUD of a simple Crypto Wallet using Sequelize ORM with Node.js, express and MySQL.
 
 ## 👩‍💻 Graciela Parente
 
@@ -34,7 +34,7 @@ v14.18.0
 
 # REST API
 
-## Get list of Things
+## Get list all Wallets
 
 ### Request
 
@@ -103,7 +103,7 @@ v14.18.0
 
     internal server error
 
-## Create a new Thing
+## Create a new Wallet
 
 ### Request
 
@@ -126,7 +126,7 @@ v14.18.0
     500
     internal server error
 
-## Get a specific Thing
+## Get a specific Wallet
 
 ### Request
 
@@ -190,7 +190,7 @@ v14.18.0
 
 }
 
-## Change a Thing's state
+## Change a Wallet state
 
 ### Request
 
