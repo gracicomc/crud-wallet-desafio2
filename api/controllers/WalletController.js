@@ -1,6 +1,7 @@
 const database = require('../models');
 
 class WalletController {
+    //Create Wallet
     static async postWallet(req, res) {
         const newWallet = req.body;
         try {
@@ -11,6 +12,7 @@ class WalletController {
         }
     }
 
+    //Get all Wallets
     static async getAllWallets(req, res) {
         try {
             const allWallets = await database.Wallets.findAll({
@@ -22,6 +24,7 @@ class WalletController {
         }
     }
 
+    //Get Wallets by Address
     static async getByAdress(req, res) {
         const { address } = req.params;
         try {
@@ -31,7 +34,25 @@ class WalletController {
             });
             return res.status(200).json(idWallet);
         } catch (err) {
-            return res.status(500).json(err.message);
+            return res.status(404).json(err.message);
+        }
+    }
+
+    //Update infos of some wallet
+    static async updateWallet(req, res) {
+        const { address } = req.params;
+        const newInfos = req.body;
+        try {
+            await database.Wallets.update(newInfos, {
+                where: { address: Number(address) },
+            });
+            const updatedWallet = await database.Wallets.findOne({
+                where: { address: Number(address) },
+                include: [database.Coins, database.Transactions],
+            });
+            return res.status(200).json(updatedWallet);
+        } catch (err) {
+            return res.status(404).json(err.message);
         }
     }
 }
