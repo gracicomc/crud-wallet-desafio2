@@ -55,6 +55,23 @@ class WalletController {
             return res.status(404).json(err.message);
         }
     }
+
+    //Delete any Wallet
+    static async deleteWallet(req, res) {
+        const { address } = req.params;
+        try {
+            await database.Wallets.destroy({
+                where: { address: Number(address) },
+                include: [database.Coins, database.Transactions],
+                force: true,
+            });
+            return res.status(204).json({
+                message: `Wallet with address ${address} was successfully deleted`,
+            });
+        } catch (err) {
+            return res.status(404).json(err.message);
+        }
+    }
 }
 
 module.exports = WalletController;
