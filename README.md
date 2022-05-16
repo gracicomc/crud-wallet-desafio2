@@ -42,7 +42,7 @@ v14.18.0
 
 ### Response
 
-    200
+    Status: 200 OK
     [
     {
         "address": 1,
@@ -113,7 +113,7 @@ v14.18.0
 
 ### Response
 
-    201
+    Status: 201 created
     {
     "address": 6,
     "name": "Daniel Souza",
@@ -132,15 +132,124 @@ v14.18.0
 
 `GET Wallet by Address`
 
-    localhost:3000/api/v1/wallets/{address}
+    localhost:3000/api/v1/wallets/2
 
 ### Response
 
-    HTTP/1.1 200 OK
-    Date: Thu, 24 Feb 2011 12:36:30 GMT
     Status: 200 OK
-    Connection: close
-    Content-Type: application/json
-    Content-Length: 36
+    {
+    "address": 2,
+    "name": "Marcos Silva",
+    "cpf": "245.634.328-45",
+    "birthdate": "1998-06-23",
+    "createdAt": "2022-05-15T22:49:00.000Z",
+    "updatedAt": "2022-05-15T22:49:00.000Z",
+    "Coins": [
+        {
+            "idCoin": 4,
+            "coin": "ETH",
+            "fullname": "Etherium",
+            "amont": 15.83,
+            "WalletCoins": 2
+        },
+        {
+            "idCoin": 5,
+            "coin": "BTC",
+            "fullname": "Bitcoin",
+            "amont": 0.00983,
+            "WalletCoins": 2
+        },
+        {
+            "idCoin": 6,
+            "coin": "BRL",
+            "fullname": "Real",
+            "amont": 20,
+            "WalletCoins": 2
+        }
+    ],
+    "Transactions": [
+        {
+            "idTransactions": 3,
+            "value": 12431,
+            "datetime": "2022-05-15T22:49:00.000Z",
+            "sendTo": 1,
+            "receiveFrom": 3,
+            "currentCotation": 41321.412,
+            "CoinTransaction": 2
+        },
+        {
+            "idTransactions": 4,
+            "value": 12431,
+            "datetime": "2022-05-15T22:49:00.000Z",
+            "sendTo": 2,
+            "receiveFrom": 4,
+            "currentCotation": 1241.2313,
+            "CoinTransaction": 2
+        }
+    ]
 
-    {"id":1,"name":"Foo","status":"new"}
+}
+
+## Change a Thing's state
+
+### Request
+
+`Update Wallet's Infos`
+
+    localhost:3000/api/v1/wallets/2
+
+### Response
+
+    Status: 200 OK
+    {
+    "address": 2,
+    "name": "Carla Braga",
+    "cpf": "245.634.328-45",
+    "birthdate": "1998-06-23",
+    "createdAt": "2022-05-16T00:48:23.000Z",
+    "updatedAt": "2022-05-16T00:56:20.000Z",
+    "Coins": [
+        {
+            "idCoin": 4,
+            "coin": "ETH",
+            "fullname": "Etherium",
+            "amont": 15.83,
+            "WalletCoins": 2
+        },
+        {
+            "idCoin": 5,
+            "coin": "BTC",
+            "fullname": "Bitcoin",
+            "amont": 0.00983,
+            "WalletCoins": 2
+        },
+        {
+            "idCoin": 6,
+            "coin": "BRL",
+            "fullname": "Real",
+            "amont": 20,
+            "WalletCoins": 2
+        }
+    ],
+    "Transactions": [
+        {
+            "idTransactions": 3,
+            "value": 12431,
+            "datetime": "2022-05-16T00:48:23.000Z",
+            "sendTo": 1,
+            "receiveFrom": 3,
+            "currentCotation": 41321.412,
+            "CoinTransaction": 2
+        },
+        {
+            "idTransactions": 4,
+            "value": 12431,
+            "datetime": "2022-05-16T00:48:23.000Z",
+            "sendTo": 2,
+            "receiveFrom": 4,
+            "currentCotation": 1241.2313,
+            "CoinTransaction": 2
+        }
+    ]
+
+}
