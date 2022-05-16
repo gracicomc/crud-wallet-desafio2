@@ -1,6 +1,6 @@
 # 💱 Crypto Wallet CRUD
 
-## This is a API REST CRUD of a simple Crypto Wallet following, using Sequelize ORM with Node.js, express MySQL.
+## This is a API REST CRUD of a simple Crypto Wallet using Sequelize ORM with Node.js, express MySQL.
 
 ## 👩‍💻 Graciela Parente
 
