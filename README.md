@@ -1,6 +1,6 @@
 # 💱 Crypto Wallet CRUD
 
-## This is a CRUD of a simple Crypto Wallet following REST API patterns, using ORM (sequelize) with Node.js, express and axios.
+## This is a API REST CRUD of a simple Crypto Wallet following, using Sequelize ORM with Node.js, express MySQL.
 
 ## 👩‍💻 Graciela Parente
 
@@ -16,9 +16,11 @@ v14.18.0
 6.14.15
 ```
 
-### The entire application is contained within the `api` folder.
+## The entire application is contained within the `api` folder.
 
-### First install dependecies
+#
+
+### First install dependencies
 
     npm install
 
@@ -100,8 +102,6 @@ v14.18.0
     500
 
     internal server error
-
-    []
 
 ## Create a new Thing
 
@@ -253,3 +253,15 @@ v14.18.0
     ]
 
 }
+
+## Delete a Wallet
+
+### Request
+
+`DELETE Wallet`
+
+    localhost:3000/api/v1/wallets/1
+
+### Response
+
+THIS METHOD IS CURRENTLY NOT WORKING YET :(
